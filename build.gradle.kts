@@ -38,7 +38,7 @@ tasks.withType<KotlinCompile>() {
 }
 
 fun Test.setupSelenideProperties() = apply {
-    systemProperty("selenide.baseUrl", getenv("ENDPOINT_URL") ?: "" )
+    systemProperty("selenide.baseUrl", getenv("ENDPOINT_URL") ?: "https://www.youtube.com/" )
     systemProperty("selenide.timeout", getenv("TIMEOUT") ?: "20000")
     systemProperty("selenide.startMaximized", "true")
 }
