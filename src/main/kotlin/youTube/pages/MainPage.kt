@@ -2,6 +2,8 @@ package youTube.pages
 
 import base.*
 import base.AbstractNavigationMenu
+import com.codeborne.selenide.Credentials
+import youTube.base.AbstractYoutubePage
 import youTube.frames.*
 import youTube.pages.MainPageMenu.Items.*
 
@@ -29,4 +31,17 @@ class MainPageMenu : AbstractNavigationMenu(setOf(Main, Navigator, )) {
         }
         return (frame as F).initFrame(init)
     }
+}
+
+class MainPage : AbstractYoutubePage <MainPageMenu, MainFrame>(frame = MainFrame()) {
+    override fun initMenu(): MainPageMenu {
+        TODO("Not yet implemented")
+    }
+}
+
+//Метод открытия основной страницы
+fun openMainPage(init: MainPage.() -> Unit = {}) = MainPage().apply{
+    open<MainPage>()
+    waitForLoaded()
+    init
 }
