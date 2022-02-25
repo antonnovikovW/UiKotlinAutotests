@@ -5,6 +5,7 @@ import com.codeborne.selenide.Condition.visible
 import org.openqa.selenium.By.xpath
 import utils.type
 
+//TODO
 class YoutubeHeader : AbstractHeader() {
 
     private val signInButton =
@@ -18,9 +19,13 @@ class YoutubeHeader : AbstractHeader() {
     //TODO other elements
 
     /*TODO GoogleAuthorizationPage
-    fun clicSignIn(init: GoogleAuthorizationPage.() -> Unit = {}): GoogleAuthorizationPage =
+    fun clickSignIn(init: GoogleAuthorizationPage.() -> Unit = {}): GoogleAuthorizationPage =
         signInButton.shouldBe(visible).click(init)
      */
+
+    fun clickBurgerMenu(){
+        burgerMenuButton.click()
+    }
 
     fun searchVideo(name: String){
         searchField.type(name)

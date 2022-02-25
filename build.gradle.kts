@@ -3,7 +3,7 @@ import java.lang.System.getenv
 
 plugins {
     kotlin("jvm") version "1.5.10"
-    id("io.qameta.allure") version "2.9.6"
+    //id("io.qameta.allure") version "2.9.6"
 }
 
 val selenide_version: String by project
