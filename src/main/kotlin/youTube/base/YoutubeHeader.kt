@@ -3,6 +3,7 @@ package youTube.base
 import base.AbstractHeader
 import com.codeborne.selenide.Condition.visible
 import org.openqa.selenium.By.xpath
+import utils.type
 
 class YoutubeHeader : AbstractHeader() {
 
@@ -20,6 +21,11 @@ class YoutubeHeader : AbstractHeader() {
     fun clicSignIn(init: GoogleAuthorizationPage.() -> Unit = {}): GoogleAuthorizationPage =
         signInButton.shouldBe(visible).click(init)
      */
+
+    fun searchVideo(name: String){
+        searchField.type(name)
+        searchButton.click()
+    }
 
     override fun waitForLoaded() {
         super.waitForLoaded()
