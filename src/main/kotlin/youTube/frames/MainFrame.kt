@@ -9,11 +9,16 @@ class MainFrame : AbstractFrame(byXpath("//ytd-rich-grid-renderer")) {
 
     private val filtersBlock = find(By.xpath(".//*[@id='chips']"))
 
+    //TODO
+    fun getVideos() {
+    }
+
+
+
     override fun waitForLoaded() {
         super.waitForLoaded()
         filtersBlock.shouldBe(Condition.visible)
     }
-
 }
 
 fun mainFrame(init: MainFrame.() -> Unit = {}) = MainFrame().apply {

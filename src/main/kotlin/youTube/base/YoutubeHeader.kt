@@ -1,12 +1,13 @@
 package youTube.base
 
-import base.AbstractHeader
+import base.AbstractComponentsGroup
 import com.codeborne.selenide.Condition.visible
 import org.openqa.selenium.By.xpath
+import utils.byXpath
 import utils.type
 
 //TODO
-class YoutubeHeader : AbstractHeader() {
+class YoutubeHeader : AbstractComponentsGroup(byXpath("//ytd-masthead")) {
 
     private val signInButton =
         find(xpath(".//*[@id='button' and @class='style-scope ytd-button-renderer style-suggestive size-small']"))
@@ -14,8 +15,7 @@ class YoutubeHeader : AbstractHeader() {
     private val searchField = find(xpath(".//input[@id='search']"))
     private val searchButton = find(xpath(".//*[@id='search-icon-legacy']"))
     private val burgerMenuButton = find(xpath(".//*[@id='guide-icon']"))
-    private val linksButton = find(xpath(".(//yt-icon[@class='style-scope ytd-topbar-menu-button-renderer'])[1]"))
-    private val settingsButton = find(xpath(".(//yt-icon[@class='style-scope ytd-topbar-menu-button-renderer'])[2]"))
+
     //TODO other elements
 
     /*TODO GoogleAuthorizationPage
@@ -27,20 +27,22 @@ class YoutubeHeader : AbstractHeader() {
         burgerMenuButton.click()
     }
 
-    fun searchVideo(name: String){
-        searchField.type(name)
+    fun searchVideo(videoName: String){
+        searchField.type(videoName)
         searchButton.click()
     }
 
     override fun waitForLoaded() {
-        super.waitForLoaded()
         listOf(
             logo,
             searchButton,
             searchField,
             burgerMenuButton,
-            linksButton,
-            settingsButton
         ).forEach { it.shouldBe(visible) }
     }
+}
+
+fun youTubeHeader(init: YoutubeHeader.() -> Unit = {}) = YoutubeHeader().apply{
+    waitForLoaded()
+    init()
 }

@@ -21,10 +21,4 @@ abstract class AbstractMenu(
     }
 }
 
-abstract class AbstractNavigationMenu(override val items: Set<AbstractMenuItem<*>>) : AbstractMenu(items) {
-
-        override fun waitForLoaded() {
-        super.waitForLoaded()
-        //TODO("добавить проверку!!!")
-    }
-}
+abstract class AbstractNavigationMenu(override val items: Set<AbstractMenuItem<*>>) : AbstractMenu(items)

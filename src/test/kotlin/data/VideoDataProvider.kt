@@ -11,6 +11,5 @@ class VideoDataProvider {
         fun getFoundedVideo()= arrayOf(
             arrayOf("Лекция 1. Java. Введение")
         )
-
     }
 }

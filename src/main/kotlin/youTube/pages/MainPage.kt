@@ -3,6 +3,7 @@ package youTube.pages
 import base.*
 import base.AbstractNavigationMenu
 import youTube.base.AbstractYoutubePage
+import youTube.base.YoutubeHeader
 import youTube.frames.*
 import youTube.pages.MainPageMenu.Items.*
 
