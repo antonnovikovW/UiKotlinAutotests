@@ -1,10 +1,11 @@
 package youTube
 
 import data.VideoDataProvider
+import org.assertj.core.api.Assertions.assertThat
 import org.testng.annotations.BeforeClass
 import org.testng.annotations.Test
+import youTube.base.searchContent
 import youTube.base.youTubeHeader
-import youTube.frames.searchFrame
 import youTube.pages.MainPageMenu.Items.*
 import youTube.pages.mainPage
 import youTube.pages.openMainPage
@@ -29,16 +30,20 @@ class MainPageTests {
         }
     }
 
-    @Test(dataProvider = "getFoundedVideo",
-        dataProviderClass = VideoDataProvider ::class
+    //TODO. В общем списке найденных видео, есть рекомендованные без содержания videoName в имени видео. Рекомендация: найти уникальные xpath на поисе или создать задачу на data-qa атрибут для отличия найденных элементов)
+    @Test(
+        enabled = false,
+        dataProvider = "getFoundedVideo",
+        dataProviderClass = VideoDataProvider::class
     )
     fun `Should found video`(videoName: String) {
-        youTubeHeader{
+        youTubeHeader {
             searchVideo(videoName)
         }
-        searchFrame {
-            //TODO assert
+        searchContent {
+            getVideos().forEach() {
+                assertThat(it.nameVideo).contains(videoName)
+            }
         }
     }
-
 }

@@ -9,7 +9,7 @@ class VideoDataProvider {
         @JvmStatic
         @DataProvider
         fun getFoundedVideo()= arrayOf(
-            arrayOf("Лекция 1. Java. Введение")
+            arrayOf("Java")
         )
     }
 }
