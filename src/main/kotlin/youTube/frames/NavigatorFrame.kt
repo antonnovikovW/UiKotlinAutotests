@@ -1,10 +1,12 @@
 package youTube.frames
+
 import base.AbstractFrame
 import com.codeborne.selenide.Condition
 import org.openqa.selenium.By
 import utils.byXpath
 
-class NavigatorFrame : AbstractFrame(byXpath("//*[@id='contents' and @class='style-scope ytd-section-list-renderer']")){
+class NavigatorFrame :
+    AbstractFrame(byXpath("//*[@id='contents' and @class='style-scope ytd-section-list-renderer']")) {
 
     private val chapterBlock = find(By.xpath(".//ytd-destination-shelf-renderer"))
 

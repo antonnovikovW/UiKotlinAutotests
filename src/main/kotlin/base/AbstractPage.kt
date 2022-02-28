@@ -1,7 +1,7 @@
 package base
 
 //Абстрактный класс общей Page для инициализации меню и фрейма
-abstract class AbstractTestPage <out M : AbstractMenu, out F : AbstractFrame>(
+abstract class AbstractTestPage<out M : AbstractMenu, out F : AbstractFrame>(
     override val url: String,
     protected open val frame: F,
 ) : AbstractPage(url) {

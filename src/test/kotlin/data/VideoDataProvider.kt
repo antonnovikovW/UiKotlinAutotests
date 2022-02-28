@@ -8,7 +8,7 @@ class VideoDataProvider {
 
         @JvmStatic
         @DataProvider
-        fun getFoundedVideo()= arrayOf(
+        fun getFoundedVideo() = arrayOf(
             arrayOf("Java")
         )
     }

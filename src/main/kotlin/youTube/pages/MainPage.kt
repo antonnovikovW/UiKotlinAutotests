@@ -1,9 +1,7 @@
 package youTube.pages
 
 import base.*
-import base.AbstractNavigationMenu
 import youTube.base.AbstractYoutubePage
-import youTube.base.YoutubeHeader
 import youTube.frames.*
 import youTube.pages.MainPageMenu.Items.*
 
@@ -38,12 +36,12 @@ class MainPageMenu : AbstractNavigationMenu(setOf(Main, Navigator, Shorts, Subsc
     }
 }
 
-class MainPage : AbstractYoutubePage <MainPageMenu, MainFrame>(frame = MainFrame()) {
+class MainPage : AbstractYoutubePage<MainPageMenu, MainFrame>(frame = MainFrame()) {
     override fun initMenu() = MainPageMenu()
 }
 
 //Метод открытия основной страницы
-fun openMainPage(init: MainPage.() -> Unit = {}) = MainPage().apply{
+fun openMainPage(init: MainPage.() -> Unit = {}) = MainPage().apply {
     open<MainPage>()
     waitForLoaded()
     init()

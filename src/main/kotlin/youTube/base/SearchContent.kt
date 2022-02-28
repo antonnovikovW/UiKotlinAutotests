@@ -19,7 +19,7 @@ class SearchContent(
         return videosCollection.map(::ContentBlock)
     }
 
-    fun getFirstVideos() : SelenideElement {
+    fun getFirstVideos(): SelenideElement {
         return firstVideo
     }
 }

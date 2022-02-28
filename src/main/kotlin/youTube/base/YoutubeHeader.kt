@@ -23,11 +23,11 @@ class YoutubeHeader : AbstractComponentsGroup(byXpath("//ytd-masthead")) {
         signInButton.shouldBe(visible).click(init)
      */
 
-    fun clickBurgerMenu(){
+    fun clickBurgerMenu() {
         burgerMenuButton.click()
     }
 
-    fun searchVideo(videoName: String){
+    fun searchVideo(videoName: String) {
         searchField.type(videoName)
         searchButton.click()
     }
@@ -42,7 +42,7 @@ class YoutubeHeader : AbstractComponentsGroup(byXpath("//ytd-masthead")) {
     }
 }
 
-fun youTubeHeader(init: YoutubeHeader.() -> Unit = {}) = YoutubeHeader().apply{
+fun youTubeHeader(init: YoutubeHeader.() -> Unit = {}) = YoutubeHeader().apply {
     waitForLoaded()
     init()
 }
