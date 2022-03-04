@@ -9,11 +9,11 @@ import kotlin.reflect.KProperty
 import kotlin.reflect.KProperty0
 import kotlin.reflect.full.primaryConstructor
 
-fun byClass(className: String) = Selenide.`$`(By.className(className))
+fun byClass(className: String) = Selenide.element(By.className(className))
 
-fun byId(id: String) = Selenide.`$`(By.id(id))
+fun byId(id: String) = Selenide.element(By.id(id))
 
-fun byXpath(xPath: String) = Selenide.`$`(By.xpath(xPath))
+fun byXpath(xPath: String) = Selenide.element(By.xpath(xPath))
 
 fun collectionByXpath(xPath: String): ElementsCollection = Selenide.`$$`(By.xpath(xPath))
 
