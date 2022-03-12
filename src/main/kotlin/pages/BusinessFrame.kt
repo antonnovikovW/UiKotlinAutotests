@@ -1,7 +1,6 @@
 package pages
 
 import base.AbstractFrame
-import base.AbstractPage
 import com.codeborne.selenide.Condition
 import models.User
 import utils.byXpath
@@ -50,4 +49,9 @@ class BusinessFrame : AbstractFrame() {
             //submitButton.click()
         }
     }
+}
+
+fun businessFrame(init: BusinessFrame.() -> Unit = {}) = BusinessFrame().apply {
+    waitForLoaded()
+    init()
 }

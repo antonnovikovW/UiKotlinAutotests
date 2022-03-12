@@ -1,7 +1,6 @@
 package base
 
 import com.codeborne.selenide.Condition.visible
-import org.openqa.selenium.By
 import org.openqa.selenium.By.xpath
 import utils.byXpath
 
@@ -20,7 +19,9 @@ abstract class AbstractHeaderMenu(
         if (itemIndex == UNKNOWN_INDEX) {
             throw IllegalArgumentException("No such '${item::class.simpleName}' item found")
         }
-        findCollection(xpath("//*[@class='styles_tooltip-wrapper__zYmHm styles_menu-item__S6yg4 wh-hidden@tablet wh-hidden@mobile']"))[itemIndex].click()
+        findCollection(xpath(".//*[@class='styles_tooltip-wrapper__zYmHm styles_menu-item__S6yg4 wh-hidden@tablet wh-hidden@mobile']"))[itemIndex].hover()
+        //TODO open menu row
+        find(xpath("(//*[@class='sublist-items']//*[contains(text(),'Корпоративные аккаунты')])[1]")).click()
     }
 
     override fun waitForLoaded() {
