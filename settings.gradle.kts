@@ -1,2 +1,2 @@
-rootProject.name = "UiTest_template"
+rootProject.name = "UiKotlinTestNG"
 

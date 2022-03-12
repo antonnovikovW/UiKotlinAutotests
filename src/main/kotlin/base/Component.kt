@@ -19,7 +19,6 @@ annotation class ElementMarker
 interface Component
 
 interface LoadableComponent : Component {
-
     fun waitForLoaded()
 }
 
