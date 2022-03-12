@@ -1,5 +1,6 @@
 package pages
 
+import base.AbstractFrame
 import base.AbstractPage
 import com.codeborne.selenide.Condition
 import models.User
@@ -7,7 +8,7 @@ import utils.byXpath
 import utils.type
 
 
-class BusinessPage : AbstractPage() {
+class BusinessFrame : AbstractFrame() {
 
     private val titleBusinessFrame = byXpath(".//*[@class='Frame_frame__title__rNHD7']")
     private val infoBusinessFrame = byXpath(".//*[@class='spacing-paragraph block size-l Frame_frame__text__8eupL']")
@@ -40,7 +41,7 @@ class BusinessPage : AbstractPage() {
     private fun typePhone(phone: String) =
         phoneField.type(phone)
 
-    fun createApplication(user: User){
+    fun createApplication(user: User) {
         with(user) {
             typeCompanyName(companyName)
             typeName(name)

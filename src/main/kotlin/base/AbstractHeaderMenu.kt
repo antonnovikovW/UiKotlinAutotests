@@ -9,7 +9,7 @@ inline fun <F : AbstractFrame> F.initFrame(init: F.() -> Unit = {}): F = apply {
     init()
 }
 
-abstract class AbstractHeader(
+abstract class AbstractHeaderMenu(
     protected open val items: Set<AbstractMenuItem<*>>
 ) : AbstractComponentsGroup(byXpath("//*[@class='headroom headroom--unfixed']")) {
 
@@ -20,7 +20,7 @@ abstract class AbstractHeader(
         if (itemIndex == UNKNOWN_INDEX) {
             throw IllegalArgumentException("No such '${item::class.simpleName}' item found")
         }
-        findCollection(By.xpath("//*[@class='styles_tooltip-wrapper__zYmHm styles_menu-item__S6yg4 wh-hidden@tablet wh-hidden@mobile']"))[itemIndex].click()
+        findCollection(xpath("//*[@class='styles_tooltip-wrapper__zYmHm styles_menu-item__S6yg4 wh-hidden@tablet wh-hidden@mobile']"))[itemIndex].click()
     }
 
     override fun waitForLoaded() {
