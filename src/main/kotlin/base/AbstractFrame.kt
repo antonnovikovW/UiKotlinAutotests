@@ -1,28 +1,17 @@
 package base
 
-import com.codeborne.selenide.Condition
-import org.openqa.selenium.By
 import utils.byXpath
 
-abstract class AbstractFrame : AbstractComponentsGroup(byXpath())
-    class EmptyFrame : AbstractFrame()
+abstract class AbstractTariffsFrame<out H : AbstractTariffsMenu>() : AbstractFrame() {
 
-    abstract class AbstractTabbedFrame(
-        private val tabs: Set<Tab<*>>,
-    ) : AbstractFrame()
-    {
-        private val tabsMenu = find(By.xpath())
+    private val tariffsMenu: H by lazy { initTariffsFrameMenu() }
 
-        fun <T : Tab<G>, G : AbstractTab> selectTab(tab: T): T = tab.apply {
-            val tabIndex = tabs.indexOf(this)
-            if (tabIndex == UNKNOWN_INDEX) {
-                throw IllegalArgumentException("No such '${this::class.simpleName}' tab found")
-            }
-            findCollection(By.xpath())[tabIndex].click()
-        }
+    abstract fun initTariffsFrameMenu(): H
 
-        override fun waitForLoaded() {
-            super.waitForLoaded()
-            tabsMenu.shouldBe(Condition.visible)
-        }
+    fun tariffsMenu(init: H.() -> Unit = {}): H = tariffsMenu.apply {
+        waitForLoaded()
+        init()
+    }
 }
+
+abstract class AbstractFrame : AbstractComponentsGroup(byXpath("//main"))
