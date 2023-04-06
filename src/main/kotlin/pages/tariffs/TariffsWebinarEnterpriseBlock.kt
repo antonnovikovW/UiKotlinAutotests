@@ -3,7 +3,6 @@ package pages.tariffs
 import base.AbstractFrame
 import com.codeborne.selenide.Condition
 import io.qameta.allure.Step
-import org.openqa.selenium.By
 import pages.registration.RegistrationSidebar
 import utils.byXpath
 import utils.click

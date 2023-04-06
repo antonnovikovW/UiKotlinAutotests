@@ -1,7 +1,6 @@
 package base
 
 import com.codeborne.selenide.Condition.visible
-import io.qameta.allure.Step
 import org.openqa.selenium.By
 import utils.byXpath
 

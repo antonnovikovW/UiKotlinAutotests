@@ -1,5 +1,5 @@
 import org.testng.annotations.Test
-import pages.MainHeaderMenu.Items.*
+import pages.MainHeaderMenu.Items.Tariffs
 import pages.openMainPage
 import pages.tariffs.TariffsFrameMenu.Items.WebinarEnterprise
 
@@ -7,11 +7,11 @@ import pages.tariffs.TariffsFrameMenu.Items.WebinarEnterprise
 class ValidationTest : BaseTest() {
 
     @Test()
-    fun `ui`() {
-        openMainPage() {
+    fun `Registration test| Validation check| Empty values`() {
+        openMainPage {
             headerMenu().openBlock(Tariffs) {
                 tariffsMenu().openBlock(WebinarEnterprise) {
-                    tryFreeTotal(){
+                    tryFreeTotal {
                         registerAndEnter()
                         assertEmptyValidation()
                     }

@@ -55,6 +55,7 @@ abstract class AbstractComponentsGroup(
         element.value = text
         rootElement.click()
     }
+
     override fun waitForLoaded() {
         rootElement.shouldBe(visible)
     }

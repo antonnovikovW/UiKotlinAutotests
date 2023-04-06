@@ -9,7 +9,8 @@ import utils.byXpath
 class RegistrationSidebar : AbstractComponentsGroup(byXpath("//*[contains(@class,'message-box')]")) {
 
     private val blockTitle = find(
-        By.xpath(".//*[contains(@class,'block-title')]"))
+        By.xpath(".//*[contains(@class,'block-title')]")
+    )
     private val nameField = find(By.xpath(".//*[@id='name']"))
     private val lastNameField = find(By.xpath(".//*[@id='last_name']"))
     private val emailField = find(By.xpath(".//*[@id='email']"))
