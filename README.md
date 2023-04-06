@@ -1,3 +1,4 @@
 # UiKotlinAutotests
 
-UiKotlinAutotests. TestNG + Gradle + Selenide
+UiKotlinAutotests. TestNG + Gradle + Selenide + Allure report
+

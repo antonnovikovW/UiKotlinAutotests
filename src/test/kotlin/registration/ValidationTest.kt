@@ -7,7 +7,7 @@ import pages.tariffs.TariffsFrameMenu.Items.WebinarEnterprise
 class ValidationTest : BaseTest() {
 
     @Test()
-    fun `Registration test| Validation check| Empty values`() {
+    fun `Registration test_Validation check_Empty values`() {
         openMainPage {
             headerMenu().openBlock(Tariffs) {
                 tariffsMenu().openBlock(WebinarEnterprise) {
